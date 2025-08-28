@@ -29,7 +29,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const handleOpen = () => setIsModalOpen(true);
 const handleClose = () => setIsModalOpen(false);
 
-// Optional: Shorten link using CleanURI free API
+// Shorten link using CleanURI free API
 const shortenLink = async () => {
   try {
     const response = await fetch("https://cleanuri.com/api/v1/shorten", {
