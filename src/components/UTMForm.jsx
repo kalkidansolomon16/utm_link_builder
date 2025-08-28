@@ -57,7 +57,7 @@ for (let i = 0; i < fields.length; i += 2) {
   <button
 
     type="submit"
-    className=" lg:w-1/2 lg:ml-30 mt-5 mx-auto border border-green-300  text-black py-3 rounded-lg bg-gradient-to-r from-[#c0eae9] to-[#eeeee4] hover:from-[#eeeee4] hover:to-[#c0eae9]  duration-300  shadow-2xl cursor-pointer transition"
+    className=" lg:w-1/2 w-2/3 ml-10 lg:ml-30 mt-5 mx-auto border border-green-300  text-black py-3 rounded-lg bg-gradient-to-r from-[#c0eae9] to-[#eeeee4] hover:from-[#eeeee4] hover:to-[#c0eae9]  duration-300  shadow-2xl cursor-pointer transition"
   >
     Generate UTM Link
   </button>

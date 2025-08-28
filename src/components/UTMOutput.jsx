@@ -20,7 +20,7 @@ const modal = {
 
   return (
     <div style={modal}  className="fixed inset-0  bg-opacity-50 flex items-center justify-center z-50">
-    <div className="mt-6 p-4 bg-gray-100 rounded-lg border w-1/3">
+    <div className="mt-6 p-4 bg-gray-100 rounded-lg border lg:w-1/3 w-5/6">
     <button
   className="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl font-bold"
   onClick={onClose}
