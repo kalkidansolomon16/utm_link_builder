@@ -3,8 +3,13 @@ import UTMForm from "./components/UTMForm";
 import UTMOutput from "./components/UTMOutput";
 
 export default function App() {
+  
   const [finalUrl, setFinalUrl] = useState("");
   const [shortUrl, setShortUrl] = useState("");
+  const backgroundStyle = {
+    
+    background: 'linear-gradient(to right,#c0eae9, #eeeee4)',
+  };
 
   // Generate UTM link from form inputs
   const generateUTM = ({ url, source, medium, campaign, term, content }) => {
@@ -20,12 +25,15 @@ export default function App() {
     setFinalUrl(utm);
     setShortUrl(""); // reset short link when generating a new one
   };
+const [isModalOpen, setIsModalOpen] = useState(false);
+const handleOpen = () => setIsModalOpen(true);
+const handleClose = () => setIsModalOpen(false);
 
-  // Optional: Shorten link using CleanURI free API
-  const shortenLink = async () => {
-    try {
-      const response = await fetch("https://cleanuri.com/api/v1/shorten", {
-        method: "POST",
+// Optional: Shorten link using CleanURI free API
+const shortenLink = async () => {
+  try {
+    const response = await fetch("https://cleanuri.com/api/v1/shorten", {
+      method: "POST",
         body: new URLSearchParams({ url: finalUrl }),
       });
       const data = await response.json();
@@ -40,13 +48,17 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center p-6">
-      <div className="max-w-2xl w-full bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">
+    <div className=" flex items-center justify-center p-6 mt-22">
+      <div style={backgroundStyle} className="max-w-2xl w-full  rounded-2xl shadow-lg p-8 h-85 mt-10">
+        <h1 className="text-2xl font-bold text-center text-green-900 mb-6">
           UTM Link Builder
         </h1>
+        
+        <div >
+
         <UTMForm onGenerate={generateUTM} />
-        <UTMOutput finalUrl={finalUrl} shortUrl={shortUrl} onShorten={shortenLink} />
+        </div>
+        <UTMOutput finalUrl={finalUrl} shortUrl={shortUrl} onShorten={shortenLink} onClose={handleClose}/>
       </div>
     </div>
   );
